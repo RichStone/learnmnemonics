@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class MajorSystemPegsTest < ApplicationSystemTestCase
   setup do
-    @major_system_peg = major_system_pegs(:major_system_peg_one)
+    @major_system_peg = major_system_pegs(:one)
   end
 
   test "visiting the index" do

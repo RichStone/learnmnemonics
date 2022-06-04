@@ -1,0 +1,4 @@
+major_system_peg_one_image:
+  name: image
+  record: one (MajorSystemPeg)
+  blob: hat_blob

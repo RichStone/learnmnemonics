@@ -2,7 +2,7 @@ require "test_helper"
 
 class MajorSystemPegsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @major_system_peg = major_system_pegs(:major_system_peg_one)
+    @major_system_peg = major_system_pegs(:one)
   end
 
   test "should get index" do

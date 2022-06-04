@@ -1,0 +1,1 @@
+hat_blob: <%= ActiveStorage::FixtureSet.blob filename: "hat.png", service_name: "test_fixtures" %>
