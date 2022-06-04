@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## For docker file
+
+* postgresql
+* brew install vips

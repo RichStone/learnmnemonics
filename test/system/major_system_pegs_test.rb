@@ -8,6 +8,9 @@ class MajorSystemPegsTest < ApplicationSystemTestCase
   test "visiting the index" do
     visit major_system_pegs_url
     assert_selector "h1", text: "Major system pegs"
+    image = page.first(:css, ".peg-image")
+    visit image[:src]
+    assert_selector :xpath, "//img[contains(@src, 'hat.png')]"
   end
 
   test "should create major system peg" do
@@ -24,7 +27,7 @@ class MajorSystemPegsTest < ApplicationSystemTestCase
 
   test "should update Major system peg" do
     visit major_system_peg_url(@major_system_peg)
-    click_on "Edit this major system peg", match: :first
+    click_on "Edit this major_system_peg", match: :first
 
     fill_in "Number", with: @major_system_peg.number
     fill_in "Phrase", with: @major_system_peg.phrase
@@ -36,7 +39,7 @@ class MajorSystemPegsTest < ApplicationSystemTestCase
 
   test "should destroy Major system peg" do
     visit major_system_peg_url(@major_system_peg)
-    click_on "Destroy this major system peg", match: :first
+    click_on "Destroy this major_system_peg", match: :first
 
     assert_text "Major system peg was successfully destroyed"
   end

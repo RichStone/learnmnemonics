@@ -1,7 +1,10 @@
 <div id="<%= dom_id major_system_peg %>">
   <p class="my-5">
     <strong class="block font-medium mb-1">Image:</strong>
-    <%= link_to major_system_peg.image.filename, major_system_peg.image if major_system_peg.image.attached? %>
+    <% if major_system_peg.image.attached? %>
+      <%= link_to major_system_peg.image.filename, major_system_peg.image %>
+      <%= link_to image_tag(major_system_peg.image.variant(resize_to_limit: [200, 200]), class: "peg-image"), major_system_peg_path(major_system_peg) %>
+    <% end %>
   </p>
 
   <p class="my-5">
