@@ -65,6 +65,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Start app with RubyMine configuration.
+  gem 'foreman', require: false
 end
 
 group :test do
