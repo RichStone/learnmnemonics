@@ -1,0 +1,22 @@
+<div id="<%= dom_id major_system_peg %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Image:</strong>
+    <%= link_to major_system_peg.image.filename, major_system_peg.image if major_system_peg.image.attached? %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Number:</strong>
+    <%= major_system_peg.number %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Phrase:</strong>
+    <%= major_system_peg.phrase %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this major system peg", major_system_peg, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this major system peg', edit_major_system_peg_path(major_system_peg), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
