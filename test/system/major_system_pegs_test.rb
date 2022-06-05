@@ -7,7 +7,7 @@ class MajorSystemPegsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit major_system_pegs_url
-    assert_selector "h1", text: "Major system pegs"
+    assert_selector "h1"
     image = page.first(:css, ".peg-image")
     visit image[:src]
     assert_selector :xpath, "//img[contains(@src, 'hat.png')]"
@@ -15,7 +15,7 @@ class MajorSystemPegsTest < ApplicationSystemTestCase
 
   test "should create major system peg" do
     visit major_system_pegs_url
-    click_on "New major system peg"
+    click_on "New Peg"
 
     fill_in "Number", with: @major_system_peg.number
     fill_in "Phrase", with: @major_system_peg.phrase

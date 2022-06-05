@@ -11,7 +11,7 @@
     hose hat hen home arrow whale shoe cow hoof pie
     daisy tattoo tuna dome diary tail dish dog dove tuba
     nose net onion enemy winery nail nacho neck knife honeybee
-  ].each_with_index do |i, phrase|
+  ].each_with_index do |phrase, i|
 
   peg = MajorSystemPeg.create(
     number: i,

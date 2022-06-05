@@ -3,7 +3,8 @@ class MajorSystemPegsController < ApplicationController
 
   # GET /major_system_pegs or /major_system_pegs.json
   def index
-    @major_system_pegs = MajorSystemPeg.all
+    # TODO: The sorting will break with 0-prepended pegs like "00", "01", etc.
+    @major_system_pegs = MajorSystemPeg.all.sort_by {|peg| peg.number.to_i}
   end
 
   # GET /major_system_pegs/1 or /major_system_pegs/1.json

@@ -1,25 +1,24 @@
-<div id="<%= dom_id major_system_peg %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Image:</strong>
+<div id="<%= dom_id major_system_peg %>" class="mt-28">
+
+  <p class="my-5 text-center font-mono text-4xl">
+    <%= major_system_peg.number %>
+  </p>
+
+  <p class="my-5 text-center font-mono text-4xl">
+    <%= major_system_peg.phrase %>
+  </p>
+
+  <p class="hero container max-w-screen-lg mx-auto pb-10 flex justify-center">
     <% if major_system_peg.image.attached? %>
-      <%= link_to major_system_peg.image.filename, major_system_peg.image %>
       <%= link_to image_tag(major_system_peg.image.variant(resize_to_limit: [200, 200]), class: "peg-image"), major_system_peg_path(major_system_peg) %>
     <% end %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Number:</strong>
-    <%= major_system_peg.number %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Phrase:</strong>
-    <%= major_system_peg.phrase %>
-  </p>
-
   <% if action_name != "show" %>
-    <%= link_to "Show this major system peg", major_system_peg, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this major system peg', edit_major_system_peg_path(major_system_peg), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+    <div class="text-center">
+      <%= link_to "Show this major system peg", major_system_peg, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to 'Edit this major system peg', edit_major_system_peg_path(major_system_peg), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+      <hr class="mt-6">
+    </div>
   <% end %>
 </div>
