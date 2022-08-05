@@ -8,6 +8,7 @@ class MajorSystemPegsTest < ApplicationSystemTestCase
   test "visiting the index" do
     visit major_system_pegs_url
     assert_selector "h1"
+    assert_selector(:xpath, "//div[@id='quick-links']/a", count: MajorSystemPeg.count)
     # This flakes out more than not.
     # image = page.first(:css, ".peg-image")
     # visit image[:src]

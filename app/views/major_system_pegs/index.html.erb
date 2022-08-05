@@ -7,6 +7,12 @@
     <h1 class="font-bold text-4xl">Mnemonic Major System Pegs</h1>
   </div>
 
+  <div id="quick-links" class="grid grid-cols-10 gap-1 text-center mt-28">
+    <% @major_system_pegs.each do |peg| %>
+      <%= link_to peg.number, major_system_peg_path(peg), class: "text-blue-600 underline" %>
+    <% end %>
+  </div>
+
   <div id="major_system_pegs">
     <%= render @major_system_pegs %>
   </div>
