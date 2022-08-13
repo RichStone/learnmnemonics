@@ -9,10 +9,12 @@ class MajorSystemPegsTest < ApplicationSystemTestCase
     visit major_system_pegs_url
     assert_selector "h1"
     assert_selector(:xpath, "//div[@id='quick-links']/a", count: MajorSystemPeg.count)
-    # This flakes out more than not.
-    # image = page.first(:css, ".peg-image")
-    # visit image[:src]
-    # assert_selector :xpath, "//img[contains(@src, 'hat.png')]"
+  end
+
+  test "#index has a peg image with a valid link" do
+    visit major_system_pegs_url
+    image = page.first(:css, ".peg-image")
+    assert_not_empty image[:src]
   end
 
   test "should create major system peg" do
