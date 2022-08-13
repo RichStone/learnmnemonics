@@ -17,5 +17,14 @@
     number: i,
     phrase: phrase
   )
-  peg.image.attach(io: File.open("storage/seeds/bob.jpeg"), filename: "bob.jpeg")
+
+  # Attach image.
+  base_path = "app/assets/images/seeds/"
+  default_path = base_path + "bob.png"
+  # Image names must be stored lower case, concatenated by dashes & as .png.
+  filename = "#{phrase.downcase.gsub(" ", "-")}.png"
+  candidate = base_path + filename
+
+  path = File.file?(candidate) ? candidate : default_path
+  peg.image.attach(io: File.open(path), filename: File.basename(path))
 end
