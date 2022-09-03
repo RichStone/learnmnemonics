@@ -1,0 +1,16 @@
+wikipedia_en_original:
+  origin: wikipedia
+  language_iso: en
+
+richs_wikipedia_en:
+  origin: wikipedia
+  language_iso: en
+  brain: richs
+
+wikipedia_de:
+  origin: wikipedia
+  language_iso: de
+
+buzan:
+  origin: Tony Buzan
+  language_iso: en
