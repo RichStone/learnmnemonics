@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# Default Major System Pegs.
+# Default Pegs.
 %w[
     hose hat hen home arrow whale shoe cow hoof pie
     daisy tattoo tuna dome diary tail dish dog dove tuba
     nose net onion enemy winery nail nacho neck knife honeybee
   ].each_with_index do |phrase, i|
 
-  peg = MajorSystemPeg.create(
+  peg = Peg.create(
     number: i,
     phrase: phrase
   )

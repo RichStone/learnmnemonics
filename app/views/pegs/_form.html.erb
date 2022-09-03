@@ -1,10 +1,10 @@
-<%= form_with(model: major_system_peg, class: "contents") do |form| %>
-  <% if major_system_peg.errors.any? %>
+<%= form_with(model: peg, class: "contents") do |form| %>
+  <% if peg.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(major_system_peg.errors.count, "error") %> prohibited this major_system_peg from being saved:</h2>
+      <h2><%= pluralize(peg.errors.count, "error") %> prohibited this peg from being saved:</h2>
 
       <ul>
-        <% major_system_peg.errors.each do |error| %>
+        <% peg.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
