@@ -1,4 +1,9 @@
 class PegsController < ApplicationController
+  http_basic_authenticate_with(
+    name: Rails.application.credentials.dig(:basic_auth_username),
+    password: Rails.application.credentials.dig(:basic_auth_password)
+  )
+
   before_action :set_peg, only: %i[ show edit update destroy ]
 
   # GET /pegs

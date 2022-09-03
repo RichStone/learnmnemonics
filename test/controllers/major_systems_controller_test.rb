@@ -6,41 +6,61 @@ class MajorSystemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get major_systems_url
+    get major_systems_url, headers: {"HTTP_AUTHORIZATION" => basic_auth_header_value}
     assert_response :success
   end
 
   test "should get new" do
-    get new_major_system_url
+    get new_major_system_url, headers: {"HTTP_AUTHORIZATION" => basic_auth_header_value}
     assert_response :success
   end
 
   test "should create major_system" do
     assert_difference("MajorSystem.count") do
-      post major_systems_url, params: { major_system: { brain_id: @major_system.brain_id, language_iso: @major_system.language_iso, origin: @major_system.origin } }
+      post major_systems_url,
+        params: {
+          major_system: {
+            brain_id: @major_system.brain_id,
+            language_iso: @major_system.language_iso,
+            origin: @major_system.origin
+          }
+        }, headers: {"HTTP_AUTHORIZATION" => basic_auth_header_value}
     end
 
     assert_redirected_to major_system_url(MajorSystem.last)
   end
 
   test "should show major_system" do
-    get major_system_url(@major_system)
+    get major_system_url(@major_system),
+      headers: {"HTTP_AUTHORIZATION" => basic_auth_header_value}
+
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_major_system_url(@major_system)
+    get edit_major_system_url(@major_system),
+      headers: {"HTTP_AUTHORIZATION" => basic_auth_header_value}
+
     assert_response :success
   end
 
   test "should update major_system" do
-    patch major_system_url(@major_system), params: { major_system: { brain_id: @major_system.brain_id, language_iso: @major_system.language_iso, origin: @major_system.origin } }
+    patch major_system_url(@major_system),
+      params: {
+        major_system: {
+          brain_id: @major_system.brain_id,
+          language_iso: @major_system.language_iso,
+          origin: @major_system.origin
+        }
+      }, headers: {"HTTP_AUTHORIZATION" => basic_auth_header_value}
+
     assert_redirected_to major_system_url(@major_system)
   end
 
   test "should destroy major_system" do
     assert_difference("MajorSystem.count", -1) do
-      delete major_system_url(@major_system)
+      delete major_system_url(@major_system),
+        headers: {"HTTP_AUTHORIZATION" => basic_auth_header_value}
     end
 
     assert_redirected_to major_systems_url

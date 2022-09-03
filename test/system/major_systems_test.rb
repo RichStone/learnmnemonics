@@ -6,12 +6,12 @@ class MajorSystemsTest < ApplicationSystemTestCase
   end
 
   test "visiting the index" do
-    visit major_systems_url
+    visit_basic_auth major_systems_url
     assert_selector "h1", text: "Major systems"
   end
 
   test "should create major system" do
-    visit major_systems_url
+    visit_basic_auth major_systems_url
     click_on "New major system"
 
     fill_in "Brain", with: @major_system.brain_id
@@ -24,7 +24,7 @@ class MajorSystemsTest < ApplicationSystemTestCase
   end
 
   test "should update Major system" do
-    visit major_system_url(@major_system)
+    visit_basic_auth major_system_url(@major_system)
     click_on "Edit this major system", match: :first
 
     fill_in "Brain", with: @major_system.brain_id
@@ -37,7 +37,7 @@ class MajorSystemsTest < ApplicationSystemTestCase
   end
 
   test "should destroy Major system" do
-    visit major_system_url(@major_system)
+    visit_basic_auth major_system_url(@major_system)
     click_on "Destroy this major system", match: :first
 
     assert_text "Major system was successfully destroyed"
