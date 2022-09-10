@@ -58,6 +58,11 @@ class MajorSystemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def major_system_params
-      params.require(:major_system).permit(:origin, :language_iso, :brain_id)
+      params.require(:major_system).permit(
+        :origin,
+        :origin_url,
+        :language_iso,
+        :brain_id
+      )
     end
 end

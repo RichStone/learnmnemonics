@@ -17,6 +17,7 @@ class MajorSystemsTest < ApplicationSystemTestCase
     fill_in "Brain", with: @major_system.brain_id
     fill_in "Language iso", with: @major_system.language_iso
     fill_in "Origin", with: @major_system.origin
+    fill_in "Origin URL", with: @major_system.origin_url
     click_on "Create Major system"
 
     assert_text "Major system was successfully created"

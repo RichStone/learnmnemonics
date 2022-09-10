@@ -4,6 +4,6 @@ class PublicPagesController < ApplicationController
   end
 
   def major_systems
-    @major_systems = MajorSystem.for_public_view.preload(:pegs)
+    @major_systems = MajorSystem.original.preload(:pegs)
   end
 end

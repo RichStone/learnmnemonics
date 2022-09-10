@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_03_134746) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_10_140821) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,13 +49,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_03_134746) do
     t.index ["email"], name: "index_brains_on_email"
   end
 
-  create_table "major_systems", force: :cascade do |t|
+  create_table "mnemonic_systems", force: :cascade do |t|
     t.string "origin", null: false
     t.string "language_iso", limit: 2, null: false
     t.bigint "brain_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["brain_id"], name: "index_major_systems_on_brain_id"
+    t.string "origin_url"
+    t.index ["brain_id"], name: "index_mnemonic_systems_on_brain_id"
   end
 
   create_table "pegs", force: :cascade do |t|
@@ -63,9 +64,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_03_134746) do
     t.string "phrase", limit: 100
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "mnemonic_system_id"
+    t.index ["mnemonic_system_id"], name: "index_pegs_on_mnemonic_system_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "major_systems", "brains"
+  add_foreign_key "mnemonic_systems", "brains"
+  add_foreign_key "pegs", "mnemonic_systems"
 end

@@ -22,7 +22,8 @@ class MajorSystemsControllerTest < ActionDispatch::IntegrationTest
           major_system: {
             brain_id: @major_system.brain_id,
             language_iso: @major_system.language_iso,
-            origin: @major_system.origin
+            origin: @major_system.origin,
+            origin_url: @major_system.origin_url
           }
         }, headers: {"HTTP_AUTHORIZATION" => basic_auth_header_value}
     end
