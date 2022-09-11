@@ -1,0 +1,18 @@
+<div id="<%= dom_id peg %>" class="mt-28">
+
+  <p class="my-5 text-center font-mono text-4xl">
+    <%= peg.number %>
+  </p>
+
+  <p class="my-5 text-center font-mono text-4xl">
+    <%= peg.phrase %>
+  </p>
+
+  <p class="hero container max-w-screen-lg mx-auto pb-10 flex justify-center">
+    <% if peg.image.attached? %>
+      <%= link_to image_tag(peg.image.variant(resize_to_limit: [200, 200]), class: "peg-image"), peg_path(peg) %>
+    <% end %>
+  </p>
+
+  <hr class="mt-6">
+</div>
