@@ -120,6 +120,7 @@ GEM
     io-console (0.5.11)
     irb (1.4.1)
       reline (>= 0.3.0)
+    iso-639 (0.3.5)
     jmespath (1.6.1)
     loofah (2.18.0)
       crass (~> 1.0.2)
@@ -251,6 +252,7 @@ DEPENDENCIES
   foreman
   image_processing (~> 1.2)
   importmap-rails
+  iso-639
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.3)

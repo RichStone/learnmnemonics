@@ -4,12 +4,9 @@ class PublicPagesController < ApplicationController
   end
 
   def major_systems
-    if params[:language_iso] || params[:system_id]
-      # TODO
-    else
-      # Default major system to show.
-      # TODO: Set default language based on locale.
-      @major_system = MajorSystem.original.english.preload(:pegs).first
-    end
+    # Default major system to show initially, the rest will be handled by turbo.
+    # TODO: Set default language based on locale.
+    @major_systems = MajorSystem.original.english.preload(:pegs)
+    @major_system = @major_systems.first
   end
 end
