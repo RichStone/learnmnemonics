@@ -9,4 +9,19 @@ class PublicPagesController < ApplicationController
     @major_systems = MajorSystem.original.english.preload(:pegs)
     @major_system = @major_systems.first
   end
+
+  def major_system_pegs
+    # The selected one.
+    @target = permitted_major_systems_params[:target]
+  end
+
+  def major_systems_per_language
+
+  end
+
+  private
+
+  def permitted_major_systems_params
+    params.permit(:language_iso, :system_id, :target)
+  end
 end
