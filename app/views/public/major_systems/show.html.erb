@@ -1,0 +1,54 @@
+<div>
+  <h1 class="yb-28 font-bold text-4xl">Major System from <%= @major_system.origin  %></h1>
+
+  <%= link_to("🔙 to all systems", public_major_systems_path, class: "text-teal-300") %>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Origin:</strong>
+    <%= @major_system.origin %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Origin URL:</strong>
+    <%= @major_system.origin_url %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Language iso:</strong>
+    <%= @major_system.language_iso %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Brain:</strong>
+    <%= @major_system.brain_id %>
+  </p>
+
+  <div id="quick-links" class="grid grid-cols-10 gap-1 text-center mt-28">
+    <% @major_system.pegs.each do |peg| %>
+      <%= link_to peg.number, "##{dom_id(peg)}", class: "text-blue-600 underline" %>
+    <% end %>
+  </div>
+
+  <div id="pegs">
+    <% @major_system.pegs.each do |peg| %>
+      <div id="<%= dom_id peg %>" class="mt-28">
+
+        <p class="my-5 text-center font-mono text-4xl">
+          <%= peg.number %>
+        </p>
+
+        <p class="my-5 text-center font-mono text-4xl">
+          <%= peg.phrase %>
+        </p>
+
+        <p class="hero container max-w-screen-lg mx-auto pb-10 flex justify-center">
+          <% if peg.image.attached? %>
+            <%= image_tag(peg.image.variant(resize_to_limit: [200, 200]), class: "peg-image") %>
+          <% end %>
+        </p>
+
+        <hr class="mt-6">
+      </div>
+    <% end %>
+  </div>
+</div>

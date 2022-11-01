@@ -11,3 +11,9 @@
 }
 
 */
+
+@layer base {
+  a {
+    @apply text-blue-600;
+  }
+}
