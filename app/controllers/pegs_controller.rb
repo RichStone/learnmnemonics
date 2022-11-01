@@ -60,6 +60,6 @@ class PegsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def peg_params
-      params.require(:peg).permit(:image, :number, :phrase)
+      params.require(:peg).permit(:image, :number, :phrase, :mnemonic_system_id)
     end
 end

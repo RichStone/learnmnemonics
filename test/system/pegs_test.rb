@@ -23,6 +23,7 @@ class PegsTest < ApplicationSystemTestCase
 
     fill_in "Number", with: @peg.number
     fill_in "Phrase", with: @peg.phrase
+    fill_in "Mnemonic system ID", with: @peg.major_system.id
     click_on "Create Peg"
 
     assert_text "Peg was successfully created"

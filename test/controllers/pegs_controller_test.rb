@@ -18,7 +18,13 @@ class PegsControllerTest < ActionDispatch::IntegrationTest
   test "should create peg" do
     assert_difference("Peg.count") do
       post pegs_url,
-        params: { peg: { number: @peg.number, phrase: @peg.phrase }},
+        params: {
+          peg: {
+            number: @peg.number,
+            phrase: @peg.phrase,
+            mnemonic_system_id: @peg.major_system.id
+          }
+        },
         headers: {"HTTP_AUTHORIZATION" => basic_auth_header_value}
     end
 
