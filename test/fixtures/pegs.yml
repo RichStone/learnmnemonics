@@ -1,7 +1,9 @@
 one:
   number: 1
   phrase: hat
+  major_system: wikipedia_en_original
 
 two:
   number: 2
   phrase: hen
+  major_system: wikipedia_en_original
