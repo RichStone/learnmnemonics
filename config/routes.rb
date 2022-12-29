@@ -7,7 +7,5 @@ Rails.application.routes.draw do
     resource :homepage, only: :show
   end
 
-  get "/public/major_systems", to: "public_pages#major_systems"
-
-  root "public_pages#major_systems"
+  root "public/major_systems#index"
 end

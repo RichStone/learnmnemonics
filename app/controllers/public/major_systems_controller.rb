@@ -1,6 +1,7 @@
 class Public::MajorSystemsController < ApplicationController
   def index
-    @major_systems = MajorSystem.all.original.language(major_systems_params[:language_iso])
+    @languages = MajorSystem.original.group(:language_iso).pluck(:language_iso)
+    @major_systems = MajorSystem.original.language(major_systems_params[:language_iso])
   end
 
   def show

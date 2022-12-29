@@ -14,44 +14,61 @@
 
   <p class="my-5">Need a different language? We already have some covered:</p>
 
-  <%# TODO: Here comes the dropdown. %>
+  <%= form_with url: public_major_systems_path, method: :get do |form| %>
+    <div class="inline-block pr-2 w-1/2">
+      <%= form.select :language_iso,
+        public_major_system_languages_select,
+        {selected: params[:language_iso]},
+        {
+          class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
+        }
+      %>
+      <%=
+        form.submit "Change",
+          data: {turbo_frame: "systems"},
+          class: "rounded-lg mt-5 py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer"
+      %>
+    </div>
+  <% end %>
 
   <p class="my-5">
     Have major system in a different language that you'd like to share?
-    We'd be happy to hear from you! <%= link_to("Ping rich", "https://twitter.com/RichStoneIO", target: "_blank") %>
+    I'd be happy to hear from you! <%= link_to("Ping rich", "https://twitter.com/RichStoneIO", target: "_blank") %>
   </p>
 
   <hr class="my-5">
 
   <div id="major_systems" class="min-w-full">
-    <% @major_systems.each do |major_system| %>
-      <section class="flex">
-        <div class="flex-none">
-          <% if major_system.pegs.first&.image&.attached? %>
-            <%= link_to(
-                  image_tag(
-                    major_system.pegs.first.image.variant(resize_to_limit: [200, 200]),
-                    class: "peg-image"
-                  ),
-                  public_major_system_path(major_system)
-                )
-            %>
-          <% end %>
-        </div>
-        <div class="flex-1">
-          <%# TODO: This needs a MnemonicSystem.description column. %>
-          This is an awesome mnemonic major system from <%= major_system.origin %>.
-        </div>
-      </section>
+    <%= turbo_frame_tag :systems do %>
+      <% @major_systems.each do |major_system| %>
+        <section class="flex">
+          <div class="flex-none">
+            <% if major_system.pegs.first&.image&.attached? %>
+              <%= link_to(
+                    image_tag(
+                      major_system.pegs.first.image.variant(resize_to_limit: [200, 200]),
+                      class: "peg-image"
+                    ),
+                    public_major_system_path(major_system)
+                  )
+              %>
+            <% end %>
+          </div>
+          <div class="flex-1">
+            <%# TODO: This needs a MnemonicSystem.description column. %>
+            This is an awesome mnemonic major system from <%= major_system.origin %>.
+          </div>
+        </section>
 
-      <%=
-        link_to "Check it out 👀",
-          major_system,
-          class: "mt-5 rounded-lg py-3 px-5 bg-blue-300 inline-block font-medium"
-      %>
+        <%=
+          link_to "Check it out 👀",
+            public_major_system_path(major_system),
+            class: "mt-5 rounded-lg py-3 px-5 bg-blue-300 inline-block font-medium"
+        %>
 
-      <hr class="mt-6">
+        <hr class="mt-6">
 
+      <% end %>
     <% end %>
   </div>
 </div>

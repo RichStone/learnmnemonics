@@ -14,6 +14,8 @@ module MajorSystemsHelper
       .original
       .pluck(:language_iso)
       .uniq
-      .to_h { |iso| [::ISO_639.find(iso).english_name, iso] }
+      .to_h do |iso|
+      [::ISO_639.find(iso).english_name, iso]
+    end
   end
 end
