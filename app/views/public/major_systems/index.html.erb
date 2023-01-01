@@ -1,4 +1,4 @@
-<div class="w-full">
+<div>
   <% if notice.present? %>
     <p
       class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block"
@@ -8,26 +8,30 @@
     </p>
   <% end %>
 
-  <h1 class="font-bold text-4xl">
+  <h1 class="h1">
     Major Systems in different languages
   </h1>
 
-  <p class="my-5">Need a different language? We already have some covered:</p>
+  <p>Need a different language? We already have some covered:</p>
 
   <%= form_with url: public_major_systems_path, method: :get do |form| %>
-    <div class="inline-block pr-2 w-1/2">
-      <%= form.select :language_iso,
-        public_major_system_languages_select,
-        {selected: params[:language_iso]},
-        {
-          class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
-        }
-      %>
-      <%=
-        form.submit "Change",
-          data: {turbo_frame: "systems"},
-          class: "rounded-lg mt-5 py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer"
-      %>
+    <div class="row">
+      <div class="col">
+        <%= form.select :language_iso,
+          public_major_system_languages_select,
+          {selected: params[:language_iso]},
+          {
+            class: "form-select p-3"
+          }
+        %>
+      </div>
+      <div class="col">
+        <%=
+          form.submit "Change",
+            data: {turbo_frame: "systems"},
+            class: "btn btn-primary p-3"
+        %>
+      </div>
     </div>
   <% end %>
 
@@ -38,11 +42,12 @@
 
   <hr class="my-5">
 
-  <div id="major_systems" class="min-w-full">
+  <div id="major_systems" class="text-center">
     <%= turbo_frame_tag :systems do %>
       <% @major_systems.each do |major_system| %>
-        <section class="flex">
-          <div class="flex-none">
+        <div class="card">
+          <h5 class="card-header"><%= major_system.origin %></h5>
+          <div class="card-body">
             <% if major_system.pegs.first&.image&.attached? %>
               <%= link_to(
                     image_tag(
@@ -53,18 +58,12 @@
                   )
               %>
             <% end %>
-          </div>
-          <div class="flex-1 py-16 px-5">
-            <%# TODO: This needs a MnemonicSystem.description column. %>
-            This is an awesome mnemonic major system from <%= major_system.origin %>.
-          </div>
-        </section>
 
-        <%=
-          link_to "Check it out 👀",
-            public_major_system_path(major_system),
-            class: "mt-5 rounded-lg py-3 px-5 bg-blue-300 inline-block font-medium"
-        %>
+            <p class="card-text mt-4">This is an awesome mnemonic major system from <%= major_system.origin %>.</p>
+
+            <%= link_to "Check it out 👀", public_major_system_path(major_system), class: "btn btn-primary" %>
+          </div>
+        </div>
 
         <hr class="mt-6">
 
