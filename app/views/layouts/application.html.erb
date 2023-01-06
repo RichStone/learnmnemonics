@@ -12,9 +12,18 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <main class="container-fluid">
+    <%= render "layouts/navbar" %>
+
+    <main class="container-fluid mt-5">
+
+      <% unless alert.nil? %>
+        <div class="alert alert-danger" role="alert"><%= alert %></div>
+      <% end %>
+
+      <% unless notice.nil? %>
+        <div class="alert alert-primary" role="alert"><%= notice %></div>
+      <% end %>
+
       <div class="row justify-content-center">
         <div class="col-8">
           <%= yield %>

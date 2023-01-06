@@ -1,0 +1,19 @@
+<header>
+  <nav class="navbar sticky-top" style="background-color: white;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <%= image_tag("favicon.png", alt: "Logo", width: 30, height: 24, class: "d-inline-block align-text-top") %>
+        memocortex
+      </a>
+      <% if brain_signed_in? %>
+        <div>Hi <%= current_brain.email %></div>
+        <%= button_to "Disconnect 🧠💤", destroy_brain_session_path, method: :delete, class: "btn btn-primary" %>
+      <% else %>
+        <form class="d-flex">
+          <%= link_to "Connect 🔌🧠", new_brain_session_path, class: "btn btn-outline-primary me-2" %>
+          <%= link_to "Register ➕🧠", new_brain_registration_path, class: "btn btn-outline-secondary me-2" %>
+        </form>
+      <% end %>
+    </div>
+  </nav>
+</header>
