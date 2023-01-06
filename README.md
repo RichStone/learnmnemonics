@@ -23,3 +23,14 @@ $ heroku run rake db:seed:replant
 `seeds.rb` contains more rules and instructions.
 
 You might want to empty and clean up the AWS bucket at some point.
+
+## TODOs
+
+- [ ] authenticate brains
+- https://stackoverflow.com/questions/15109781/step-on-how-to-add-devise-migration-to-existing-user-model-in-ruby-on-rails
+- https://guides.firstdraft.com/authentication-and-authorization-with-devise
+- [ ] add make it yours functionality
+- [ ] add spaced repetition gem
+- [ ] add footer
+- [ ] add heroicon gem for icons https://github.com/bharget/heroicon
+- [ ] create or source the peg visuals

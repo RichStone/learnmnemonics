@@ -52,8 +52,11 @@ gem "aws-sdk-s3", require: false
 # Utilities to make life easier.
 gem "iso-639"
 
-# Use bootstrap for UI and styles
+# Use bootstrap for UI and styles.
 gem "bootstrap", '~> 5.2.3'
+
+# Use devise for authentication.
+gem "devise"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

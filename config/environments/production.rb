@@ -90,4 +90,12 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # For Devise, ensure you have defined default url options in your environments
+  # files. In production, :host should be set to the actual host of your
+  # application.
+  config.action_mailer.default_url_options = {
+    host: 'https://memocortex.com',
+    port: 3000
+  }
 end
