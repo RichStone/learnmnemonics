@@ -1,7 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-richs:
+rich:
   email: mnemorex@richstone.io
+  encrypted_password: <%= Devise::Encryptor.digest(Brain, "password") %>
 
 dave:
   email: dave@conscientious.com
+  encrypted_password: <%= Devise::Encryptor.digest(Brain, "password") %>

@@ -7,7 +7,7 @@ richs_wikipedia_en:
   origin: wikipedia
   origin_url: https://en.wikipedia.org/wiki/Mnemonic_major_system
   language_iso: en
-  brain: richs
+  brain: rich
 
 wikipedia_de:
   origin: wikipedia
