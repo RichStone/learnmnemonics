@@ -2,7 +2,7 @@ class Brain::MajorSystemsController < ApplicationController
   before_action :authenticate_brain!
 
   def index
-    # TODO
+    @major_systems = current_brain.major_systems
   end
 
   def show

@@ -1,2 +1,27 @@
-<h1>Your major systems</h1>
-<p>Find me in app/views/brain/major_systems/index.html.erb</p>
+<div>
+  <h1 class="h1">Your major systems</h1>
+
+  <div id="major_systems" class="text-center">
+    <% @major_systems.each do |major_system| %>
+      <div class="card my-5">
+        <h5 class="card-header"><%= major_system.origin %></h5>
+        <div class="card-body">
+          <% if major_system.pegs.first&.image&.attached? %>
+            <%= link_to(
+                  image_tag(
+                    major_system.pegs.first.image.variant(resize_to_limit: [200, 200]),
+                    class: "peg-image"
+                  ),
+                  brain_major_system_path(major_system)
+                )
+            %>
+          <% end %>
+
+          <p class="card-text mt-4">This your awesome mnemonic major system from <%= major_system.origin %>.</p>
+
+          <%= link_to "Check it out 👀", brain_major_system_path(major_system), class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

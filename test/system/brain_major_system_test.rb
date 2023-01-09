@@ -9,6 +9,7 @@ class BrainMajorSystemTest < ApplicationSystemTestCase
   test "#index shows a brain's major systems" do
     visit brain_major_systems_url
     assert_selector "h1", text: "Your major systems"
+    assert_selector ".card-body", count: 1
   end
 
   test "#show displays a brain's specific major system" do
