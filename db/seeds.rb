@@ -48,6 +48,17 @@ en_buzan_gman_pegs =
      dice dad dane dam deer duel dash deck daffy dab
      NASA net nan name Nero nail Nosh neck Navy nap]
 
+rich = Brain.create(email: "richard.had@hotmail.de", password: "password5")
+
+# English Wikipedia Major System for Rich.
+# TODO: Later this should be created via the conversion method.
+richs_en_wiki_system = MajorSystem.create(
+  origin: "Wikipedia",
+  origin_url: "https://en.wikipedia.org/wiki/Mnemonic_major_system",
+  language_iso: "en",
+  brain: rich
+)
+
 def self.create_pegs(pegs, system)
   pegs.each_with_index do |phrase, i|
     peg = Peg.create(
@@ -71,3 +82,4 @@ end
 self.create_pegs(en_wiki_pegs, en_wiki_system)
 self.create_pegs(de_stenger_pegs, de_stenger_system)
 self.create_pegs(en_buzan_gman_pegs, en_buzan_gman_system)
+self.create_pegs(en_wiki_pegs, richs_en_wiki_system)
