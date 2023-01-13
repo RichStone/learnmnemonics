@@ -3,29 +3,27 @@
 
   <%= link_to("🔙 to my mnemonic systems", brain_major_systems_path, class: "link") %>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Origin:</strong>
-    <%= @major_system.origin %>
+  <p class="mt-5 mb-1">
+    <strong>Origin:</strong> <%= link_to(@major_system.origin, @major_system.origin_url) %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Origin URL:</strong>
-    <%= @major_system.origin_url %>
+  <p class="my-1">
+    <strong>Language iso:</strong> <%= @major_system.language_iso %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Language iso:</strong>
-    <%= @major_system.language_iso %>
+  <p class="my-1">
+    <strong>Brain:</strong> <%= @major_system.brain_id %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Brain:</strong>
-    <%= @major_system.brain_id %>
-  </p>
-
-  <div id="quick-links" class="grid grid-cols-10 gap-1 text-center mt-28">
-    <% @major_system.pegs.each do |peg| %>
-      <%= link_to peg.number, "##{dom_id(peg)}", class: "text-blue-600 underline" %>
+  <div id="quick-links" class="my-5">
+    <% @major_system.pegs.in_batches(of: 10) do |peg_batch| %>
+      <div class="btn-toolbar my-2" style="justify-content: center;" role="toolbar" aria-label="Quick links button groups">
+        <div class="btn-group me-2" role="group" aria-label="Group">
+          <% peg_batch.each do |peg| %>
+            <%= link_to peg.number, "##{dom_id(peg)}", class: "btn btn-outline-secondary", style: "width: 38px;" %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
   </div>
 
@@ -46,8 +44,6 @@
             <%= image_tag(peg.image.variant(resize_to_limit: [200, 200]), class: "peg-image") %>
           <% end %>
         </p>
-
-        <hr class="mt-6">
       </div>
     <% end %>
   </div>
