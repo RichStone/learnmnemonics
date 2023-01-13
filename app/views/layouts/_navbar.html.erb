@@ -6,7 +6,7 @@
         memocortex
       </a>
       <% if brain_signed_in? %>
-        <div>Hi <%= current_brain.email %></div>
+        <div>Hi <%= link_to(current_brain.email, brain_major_systems_path) %></div>
         <%= button_to "Disconnect 🧠💤", destroy_brain_session_path, method: :delete, class: "btn btn-primary" %>
       <% else %>
         <form class="d-flex">
