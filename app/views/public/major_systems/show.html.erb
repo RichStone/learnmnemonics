@@ -1,54 +1,37 @@
-<div>
-  <h1 class="yb-28 font-bold text-4xl">Major System from <%= @major_system.origin  %></h1>
+<h1 class="yb-28 font-bold text-4xl">Major System from <%= @major_system.origin  %></h1>
 
-  <%= link_to("🔙 to all systems", public_major_systems_path, class: "text-teal-300") %>
+<%= link_to("🔙 to all systems", public_major_systems_path, class: "link") %>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Origin:</strong>
-    <%= @major_system.origin %>
-  </p>
+<p class="mt-5 mb-1">
+  <strong>Origin:</strong> <%= link_to(@major_system.origin, @major_system.origin_url, {target: "_blank"}) %>
+</p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Origin URL:</strong>
-    <%= @major_system.origin_url %>
-  </p>
+<p class="my-1">
+  <strong>Language:</strong> <%= ::ISO_639.find(@major_system.language_iso).english_name %>
+</p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Language iso:</strong>
-    <%= @major_system.language_iso %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Brain:</strong>
-    <%= @major_system.brain_id %>
-  </p>
-
-  <div id="quick-links" class="grid grid-cols-10 gap-1 text-center mt-28">
-    <% @major_system.pegs.each do |peg| %>
-      <%= link_to peg.number, "##{dom_id(peg)}", class: "text-blue-600 underline" %>
-    <% end %>
-  </div>
-
-  <div id="pegs">
-    <% @major_system.pegs.each do |peg| %>
-      <div id="<%= dom_id peg %>" class="mt-28">
-
-        <p class="my-5 text-center font-mono text-4xl">
-          <%= peg.number %>
-        </p>
-
-        <p class="my-5 text-center font-mono text-4xl">
-          <%= peg.phrase %>
-        </p>
-
-        <p class="hero container max-w-screen-lg mx-auto pb-10 flex justify-center">
-          <% if peg.image.attached? %>
-            <%= image_tag(peg.image.variant(resize_to_limit: [200, 200]), class: "peg-image") %>
-          <% end %>
-        </p>
-
-        <hr class="mt-6">
+<div id="quick-links" class="my-5">
+  <% @major_system.pegs.in_batches(of: 10) do |peg_batch| %>
+    <div class="btn-toolbar my-2" style="justify-content: center;" role="toolbar" aria-label="Quick links button groups">
+      <div class="btn-group me-2" role="group" aria-label="Group">
+        <% peg_batch.each do |peg| %>
+          <%= link_to peg.number, "##{dom_id(peg)}", class: "btn btn-outline-secondary", style: "width: 38px;" %>
+        <% end %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
+
+<div id="pegs" class="mt-5">
+  <% @major_system.pegs.each do |peg| %>
+    <div id="<%= dom_id peg %>">
+      <div class="card my-5 text-center mx-auto" style="width: 18rem;">
+        <h4 class="card-text p-1"><%= peg.number %></h4>
+        <% if peg.image.attached? %>
+          <%= image_tag(peg.image.variant(resize_to_limit: [200, 200]), class: "card-img-top") %>
+        <% end %>
+        <h5 class="card-title p-2"><%= peg.phrase %></h5>
+      </div>
+    </div>
+  <% end %>
 </div>

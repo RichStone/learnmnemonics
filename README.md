@@ -26,11 +26,17 @@ You might want to empty and clean up the AWS bucket at some point.
 
 ## TODOs
 
-- [ ] authenticate brains
-- https://stackoverflow.com/questions/15109781/step-on-how-to-add-devise-migration-to-existing-user-model-in-ruby-on-rails
-- https://guides.firstdraft.com/authentication-and-authorization-with-devise
-- [ ] add make it yours functionality
+  TODO:
+- [x] show all brain specific showing the same as in public but without the whole turbo stuff
+- [x] create a major system with brain in seeds
+- [x] check Brain sees good stuff when going to the brain major system show page
+- [x] make quick links and metadata nice in Brain show page
+- [x] use cards for Brain#show pegs
+- [ ] make similar in public
+- [ ] convert a major system to a user's major system (only once)
 - [ ] add spaced repetition gem
 - [ ] add footer
 - [ ] add heroicon gem for icons https://github.com/bharget/heroicon
-- [ ] create or source the peg visuals
+- [ ] source the peg visuals
+- [ ] share with memory trainers and book authors
+- [ ] add monitoring/error tracing solution

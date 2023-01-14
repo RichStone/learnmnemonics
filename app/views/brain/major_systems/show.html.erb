@@ -4,15 +4,11 @@
   <%= link_to("🔙 to my mnemonic systems", brain_major_systems_path, class: "link") %>
 
   <p class="mt-5 mb-1">
-    <strong>Origin:</strong> <%= link_to(@major_system.origin, @major_system.origin_url) %>
+    <strong>Origin:</strong> <%= link_to(@major_system.origin, @major_system.origin_url, target: "_blank") %>
   </p>
 
   <p class="my-1">
-    <strong>Language iso:</strong> <%= @major_system.language_iso %>
-  </p>
-
-  <p class="my-1">
-    <strong>Brain:</strong> <%= @major_system.brain_id %>
+    <strong>Language:</strong> <%= ::ISO_639.find(@major_system.language_iso).english_name %>
   </p>
 
   <div id="quick-links" class="my-5">
@@ -27,23 +23,16 @@
     <% end %>
   </div>
 
-  <div id="pegs">
+  <div id="pegs" class="mt-5">
     <% @major_system.pegs.each do |peg| %>
-      <div id="<%= dom_id peg %>" class="mt-28">
-
-        <p class="my-5 text-center font-mono text-4xl">
-          <%= peg.number %>
-        </p>
-
-        <p class="my-5 text-center font-mono text-4xl">
-          <%= peg.phrase %>
-        </p>
-
-        <p class="hero container max-w-screen-lg mx-auto pb-10 flex justify-center">
+      <div id="<%= dom_id peg %>">
+        <div class="card my-5 text-center mx-auto" style="width: 18rem;">
+          <h4 class="card-text p-1"><%= peg.number %></h4>
           <% if peg.image.attached? %>
-            <%= image_tag(peg.image.variant(resize_to_limit: [200, 200]), class: "peg-image") %>
+            <%= image_tag(peg.image.variant(resize_to_limit: [200, 200]), class: "card-img-top") %>
           <% end %>
-        </p>
+          <h5 class="card-title p-2"><%= peg.phrase %></h5>
+        </div>
       </div>
     <% end %>
   </div>
