@@ -14,7 +14,21 @@ class BrainMajorSystemTest < ApplicationSystemTestCase
 
   test "#index displays an additional major system after brain converts one" do
     visit public_major_systems_path
+    within find("h5", text: @richs_system.origin).sibling(".card-body") do
+      click_link "Check it out 👀"
+    end
 
+    assert_selector "h1", text: "Major System from #{@richs_system.origin}"
+
+    assert_difference "MnemonicSystem.count" do
+      find("a", text: "Memorize 🧠").click
+    end
+
+    # Check new system shows same data as original.
+    new_system = MnemonicSystem.last
+    assert_redirected_to brain_major_system_path(new_system)
+    assert find("strong", text: "Origin").sibling("a", text: @richs_system.origin)
+    assert find("strong", text: "Language").sibling("span", text: "English")
   end
 
   test "brain has a max amount of systems that it can copy" do
