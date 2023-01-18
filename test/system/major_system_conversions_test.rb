@@ -14,8 +14,11 @@ class MajorSystemConversionsTest < ApplicationSystemTestCase
   end
 
   test "displays an additional major system after brain converts one" do
+    login_as @rich_brain
+
     visit public_major_systems_path
-    within find("h5", text: @public_system.origin).sibling(".card-body") do
+    system_card = find("h5", text: @public_system.origin).sibling(".card-body")
+    within system_card do
       click_link "Check it out 👀"
     end
 

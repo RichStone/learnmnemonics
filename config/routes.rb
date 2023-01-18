@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :conversions, only: [:new, :create]
+
   resources :major_systems
   resources :pegs
 

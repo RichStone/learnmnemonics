@@ -26,14 +26,22 @@ You might want to empty and clean up the AWS bucket at some point.
 
 ## TODOs
 
-  TODO:
 - [x] show all brain specific showing the same as in public but without the whole turbo stuff
 - [x] create a major system with brain in seeds
 - [x] check Brain sees good stuff when going to the brain major system show page
 - [x] make quick links and metadata nice in Brain show page
 - [x] use cards for Brain#show pegs
-- [ ] make similar in public
-- [ ] convert a major system to a user's major system (only once)
+- [x] make similar in public
+
+Conversion:
+
+- [ ] add `resource_id` to Conversion ActiveModel and params
+- [ ] validate resource to be copied exists
+- [ ] convert a major system to a brain major system (only reference images, not hard copy)
+- [ ] add conversion limit
+
+Next up:
+
 - [ ] add spaced repetition gem
 - [ ] add footer
 - [ ] add heroicon gem for icons https://github.com/bharget/heroicon
