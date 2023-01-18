@@ -1,3 +1,5 @@
+# The super admin part of the application.
+# TODO: Move to Admin:: namespace.
 class PegsController < ApplicationController
   http_basic_authenticate_with(
     name: Rails.application.credentials.dig(:basic_auth_username),
