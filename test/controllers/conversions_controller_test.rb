@@ -13,4 +13,8 @@ class ConversionsControllerTest < ActionDispatch::IntegrationTest
     # When not logged in, anonymous brain is redirected to sign in.
     assert_redirected_to new_brain_session_path
   end
+
+  test "#create requires a resource ID to be present" do
+    skip "TODO"
+  end
 end
