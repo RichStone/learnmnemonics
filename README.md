@@ -36,7 +36,8 @@ You might want to empty and clean up the AWS bucket at some point.
 Conversion:
 
 - [x] ~add `resource_id` to Conversion ActiveModel and params~
-- [ ] continue with: Controller test => system test => service test
+- [x] continue with: Controller test => 
+- [ ] => continue with TODO system test => service test
 - [ ] validate resource to be copied exists
 - [ ] convert a major system to a brain major system (only reference images, not hard copy)
 - [ ] add conversion limit

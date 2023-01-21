@@ -15,6 +15,8 @@ class ConversionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "#create requires a resource ID to be present" do
-    skip "TODO"
+    assert_raises ActionController::ParameterMissing do
+      post conversions_path, headers: {"HTTP_AUTHORIZATION" => basic_auth_header_value}
+    end
   end
 end
