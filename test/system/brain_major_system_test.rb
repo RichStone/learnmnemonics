@@ -18,10 +18,11 @@ class BrainMajorSystemTest < ApplicationSystemTestCase
   end
 
   test "#show does not display someone else's major system" do
-    skip "TODO"
+    skip "We might need to actually handle this in the controller - I came, I saw, I relapsed. Still, I showed up."
+    visit brain_major_system_url(major_systems(:dave_system))
   end
 
-  test "brain can delete its major systems" do
+  test "brain can delete a major system" do
     skip "TODO"
   end
 end
