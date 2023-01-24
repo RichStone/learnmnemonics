@@ -38,7 +38,7 @@
 
 <%=
   link_to "Memorize 🧠",
-    new_conversion_path,
+    new_conversion_path(resource: {id: @major_system.id}),
     class: "btn btn-primary",
     style: "position: fixed; right: 10px; bottom: 5px"
 %>
