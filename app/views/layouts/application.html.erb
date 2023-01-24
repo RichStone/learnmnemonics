@@ -21,12 +21,12 @@
 
     <main class="container-fluid mt-5">
 
-      <% unless alert.nil? %>
-        <div class="alert alert-danger" role="alert"><%= alert %></div>
+      <% if alert.present? %>
+        <p class="alert alert-danger" role="alert"><%= alert %></p>
       <% end %>
 
-      <% unless notice.nil? %>
-        <div class="alert alert-primary" role="alert"><%= notice %></div>
+      <% if notice.present? %>
+        <p class="alert alert-primary" role="alert"><%= notice %></p>
       <% end %>
 
       <div class="row justify-content-center">
