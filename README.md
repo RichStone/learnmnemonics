@@ -37,7 +37,8 @@ Conversion:
 
 - [x] ~add `resource_id` to Conversion ActiveModel and params~
 - [x] continue with: Controller test => 
-- [ ] => continue with TODO system test => service test
+- [x] => continue with TODO system test 
+- [ ] implement service and service test to check for MajorSystem.count and the right association; also checking that the right objects are copied.
 - [ ] validate resource to be copied exists
 - [ ] convert a major system to a brain major system (only reference images, not hard copy)
 - [ ] add conversion limit

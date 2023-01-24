@@ -4,22 +4,27 @@ class ConversionsController < ApplicationController
   end
 
   def create
-    redirect_to new_brain_session_path unless current_brain
+    return redirect_to new_brain_session_path unless current_brain
 
-    conversion = MajorSystemConverter.new(current_brain, conversions_create_params)
+    original = MajorSystem.find(resource_conversion_params[:id])
+    conversion = MajorSystem.create!(
+      origin: original.origin,
+      origin_url: original.origin_url,
+      language_iso: original.language_iso,
+      brain: current_brain
+    )
 
     if conversion
-      # TODO: Redirect to new major system.
-      # TODO: Converting is a process that can take time. Do it synchronously
-      # and display progress with turbo.
+      redirect_to brain_major_system_path(conversion),
+        notice: "Successfully shoved into brain"
     else
-      # TODO: Something went wrong.
+      render :show, status: :unprocessable_entity
     end
   end
 
   private
 
-  def conversions_create_params
+  def resource_conversion_params
     params.require(:resource).permit(:id)
   end
 end

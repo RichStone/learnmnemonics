@@ -2,6 +2,10 @@
 # duplicating everything.
 class MajorSystemConverter
   def initialize(brain, params)
-    # TODO
+    # TODO: This might be fine doing without initialization, just with a class method?
+    #
+    # Like:
+    #
+    # def self.convert
   end
 end
