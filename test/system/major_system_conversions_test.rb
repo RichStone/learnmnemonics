@@ -24,7 +24,6 @@ class MajorSystemConversionsTest < ApplicationSystemTestCase
 
     assert_selector "h1", text: "Major System from #{@public_system.origin}"
 
-
     find("a", text: "Memorize 🧠").click
 
     # Check new system shows same data as original.
@@ -34,6 +33,16 @@ class MajorSystemConversionsTest < ApplicationSystemTestCase
   end
 
   test "brain sees error when trying to convert a system if limit reached" do
-    skip "TODO"
+    login_as @rich_brain
+
+    # This reaches the limit given the other major system in fixtures.
+    visit public_major_system_url(@public_system)
+    find("a", text: "Memorize 🧠").click
+    assert find("p", text: "Successfully shoved into brain")
+
+    visit public_major_system_url(@public_system)
+    find("a", text: "Memorize 🧠").click
+    assert find("p", text: "Your memocortex is full, contact the support if you need more brain space")
+    assert_current_path brain_major_systems_path
   end
 end

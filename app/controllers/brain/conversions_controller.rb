@@ -7,12 +7,7 @@ class Brain::ConversionsController < ApplicationController
 
   def create
     original = MajorSystem.find(resource_conversion_params[:id])
-    conversion = MajorSystem.create!(
-      origin: original.origin,
-      origin_url: original.origin_url,
-      language_iso: original.language_iso,
-      brain: current_brain
-    )
+    conversion = MajorSystemConverter.convert(original, current_brain)
 
     if conversion
       redirect_to brain_major_system_path(conversion),
@@ -20,6 +15,9 @@ class Brain::ConversionsController < ApplicationController
     else
       render :show, status: :unprocessable_entity
     end
+
+  rescue MajorSystemConverter::ConversionLimitReachedError => e
+    redirect_to brain_major_systems_path, alert: e.message
   end
 
   private
