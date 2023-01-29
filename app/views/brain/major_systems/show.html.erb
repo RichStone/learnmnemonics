@@ -11,6 +11,16 @@
     <strong>Language:</strong> <span><%= ::ISO_639.find(@major_system.language_iso).english_name %></span>
   </p>
 
+  <p class="my-1">
+    <%=
+      button_to "Forget it! 🚮",
+        brain_major_system_path(@major_system),
+        method: :delete,
+        class: "btn btn-outline-danger",
+        data: {turbo_confirm: "Are you sure you want to remove this system from your brain?"}
+    %>
+  </p>
+
   <div id="quick-links" class="my-5">
     <% @major_system.pegs.in_batches(of: 10) do |peg_batch| %>
       <div class="btn-toolbar my-2" style="justify-content: center;" role="toolbar" aria-label="Quick links button groups">

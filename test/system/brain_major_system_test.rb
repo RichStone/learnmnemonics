@@ -3,7 +3,7 @@ require "application_system_test_case"
 class BrainMajorSystemTest < ApplicationSystemTestCase
   def setup
     login_as brains(:rich)
-    @richs_system = brains(:rich).major_systems.first
+    @rich_system = brains(:rich).major_systems.first
   end
 
   test "#index displays a brain's major systems" do
@@ -13,16 +13,16 @@ class BrainMajorSystemTest < ApplicationSystemTestCase
   end
 
   test "#show displays a brain's specific major system" do
-    visit brain_major_system_url(@richs_system)
-    assert_selector "h1", text: @richs_system.origin
-  end
-
-  test "#show does not display someone else's major system" do
-    skip "We might need to actually handle this in the controller - I came, I saw, I relapsed. Still, I showed up."
-    visit brain_major_system_url(major_systems(:dave_system))
+    visit brain_major_system_url(@rich_system)
+    assert_selector "h1", text: @rich_system.origin
   end
 
   test "brain can delete a major system" do
-    skip "TODO"
+    visit brain_major_system_url(@rich_system)
+    accept_confirm do
+      click_button "Forget it! 🚮"
+    end
+    assert_current_path brain_major_systems_path
+    assert find("p", text: "Successfully forgotten")
   end
 end

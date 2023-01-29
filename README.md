@@ -40,8 +40,10 @@ Conversion:
 - [x] => continue with TODO system test 
 - [x] implement service and service test to check for MajorSystem.count
 - [x] complement service test to check for the right attribs and brain associations
-- [ ] add conversion limit
+- [x] add conversion limit
+- [x] allow to destroy brain major systems
 - [ ] copy pegs => complement service test to check for the right peg associations
+- [ ] add link to public system for empty brain major systems index
 
 Next up:
 
