@@ -1,11 +1,11 @@
-class ConversionsController < ApplicationController
+class Brain::ConversionsController < ApplicationController
+  before_action :authenticate_brain!
+
   def new
     create
   end
 
   def create
-    return redirect_to new_brain_session_path unless current_brain
-
     original = MajorSystem.find(resource_conversion_params[:id])
     conversion = MajorSystem.create!(
       origin: original.origin,

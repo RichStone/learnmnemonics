@@ -27,8 +27,4 @@ class MajorSystemConverterTest < ActiveSupport::TestCase
   test ".convert does only reference original peg images instead of copying" do
     skip "TODO"
   end
-
-  test ".convert should throw error for non-public systems" do
-    skip "TODO - e. g. for major_systems(:dave_system)"
-  end
 end

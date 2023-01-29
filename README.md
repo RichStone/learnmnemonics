@@ -40,11 +40,8 @@ Conversion:
 - [x] => continue with TODO system test 
 - [x] implement service and service test to check for MajorSystem.count
 - [x] complement service test to check for the right attribs and brain associations
-- [ ] complement service test to check for the right peg associations
-- [ ] validate resource to be copied exists
-- [ ] convert a major system to a brain major system (only reference images, not 
-  hard copy)
 - [ ] add conversion limit
+- [ ] copy pegs => complement service test to check for the right peg associations
 
 Next up:
 

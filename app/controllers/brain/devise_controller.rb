@@ -1,3 +1,5 @@
+# This is to make devise work with Turbo.
+# https://medium.com/@nejdetkadir/how-to-use-devise-gem-with-ruby-on-rails-7-33b89f9a9c13
 class Brain::DeviseController < ApplicationController
   class Responder < ActionController::Responder
     def to_turbo_stream

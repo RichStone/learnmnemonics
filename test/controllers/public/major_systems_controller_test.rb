@@ -14,8 +14,4 @@ class Public::MajorSystemsControllerTest < ActionDispatch::IntegrationTest
     get public_major_system_url(@major_system)
     assert_response :success
   end
-
-  test "#new converts major system and redirects to the newly created one" do
-    skip "TODO"
-  end
 end

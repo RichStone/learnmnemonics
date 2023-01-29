@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :conversions, only: [:new, :create]
-
   resources :major_systems
   resources :pegs
 
@@ -12,6 +10,7 @@ Rails.application.routes.draw do
   devise_for :brains
   namespace :brain do
     resources :major_systems, only: [:index, :show]
+    resources :conversions, only: [:new, :create]
   end
 
   root "public/major_systems#index"
