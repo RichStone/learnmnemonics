@@ -39,3 +39,6 @@
 /.idea/*
 
 /config/credentials/development.key
+
+# Mac
+*.DS_Store
