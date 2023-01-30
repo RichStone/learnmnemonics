@@ -6,8 +6,13 @@ class MajorSystemConverter
   class ConversionLimitReachedError < StandardError
   end
 
-  def self.convert(original, brain)
-    if conversion_limit_reached?(brain)
+  def initialize(original, brain)
+    @original = original
+    @brain = brain
+  end
+
+  def convert
+    if conversion_limit_reached?
       raise(ConversionLimitReachedError,
         "Your memocortex is full, contact the support if you need more brain space")
     end
@@ -20,7 +25,11 @@ class MajorSystemConverter
     )
   end
 
-  def self.conversion_limit_reached?(brain)
+  private
+
+  attr_reader :original, :brain
+
+  def conversion_limit_reached?
     brain.major_systems.count >= CONVERSIONS_LIMIT
   end
 end

@@ -7,7 +7,7 @@ class Brain::ConversionsController < ApplicationController
 
   def create
     original = MajorSystem.find(resource_conversion_params[:id])
-    conversion = MajorSystemConverter.convert(original, current_brain)
+    conversion = MajorSystemConverter.new(original, current_brain).convert
 
     if conversion
       redirect_to brain_major_system_path(conversion),

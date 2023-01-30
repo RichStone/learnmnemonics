@@ -13,7 +13,7 @@ class MajorSystemConversionsTest < ApplicationSystemTestCase
     assert_current_path new_brain_session_path
   end
 
-  test "displays an additional major system after logged in brain converts one" do
+  test "displays the new major system after brain converts one" do
     login_as @rich_brain
 
     visit public_major_systems_path
@@ -30,6 +30,14 @@ class MajorSystemConversionsTest < ApplicationSystemTestCase
     assert find("p", text: "Successfully shoved into brain")
     assert find("strong", text: "Origin:").sibling("a", text: @public_system.origin)
     assert find("span", text: "English")
+  end
+
+  test "brain sees all the copied pegs" do
+    login_as @rich_brain
+
+    visit public_major_system_url(@public_system)
+    find("a", text: "Memorize 🧠").click
+    assert find("div", class: "card")
   end
 
   test "brain sees error when trying to convert a system if limit reached" do

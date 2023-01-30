@@ -8,7 +8,7 @@ class MajorSystemConverterTest < ActiveSupport::TestCase
 
   test ".convert physically copies the system with the right attributes" do
     assert_difference "MajorSystem.count" do
-      conversion = MajorSystemConverter.convert(@major_system, @brain)
+      conversion = MajorSystemConverter.new(@major_system, @brain).convert
 
       assert_equal @major_system.origin, conversion.origin
       assert_equal @major_system.origin_url, conversion.origin_url
