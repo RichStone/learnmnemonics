@@ -32,6 +32,12 @@ class MajorSystemConversionsTest < ApplicationSystemTestCase
     assert find("strong", text: "Origin:").sibling("a", text: @public_system.origin)
     assert find("span", text: "English")
     assert_selector(:xpath, "//div[starts-with(@id, 'peg_')]", count: 2)
+    assert_selector(:xpath, "//img[@class='card-img-top']", count: 1)
+    @public_system.pegs.each do |peg|
+      if peg.image.attached?
+        assert_selector(:xpath, "//img[contains(@src, '#{peg.image.filename}')]")
+      end
+    end
   end
 
   test "brain sees error when trying to convert a system if limit reached" do
