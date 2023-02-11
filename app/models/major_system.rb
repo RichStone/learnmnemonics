@@ -2,7 +2,7 @@ class MajorSystem < MnemonicSystem
   DEFAULT_LANGUAGE_ISO = "en"
 
   belongs_to :brain, optional: true
-  has_many :pegs, foreign_key: "mnemonic_system_id"
+  has_many :pegs, foreign_key: "mnemonic_system_id", dependent: :destroy
 
   # TODO: origin should be an additional resource:
   # Origin.author, Origin.url, Origin.title, etc.
