@@ -44,6 +44,7 @@ Conversion:
 - [x] allow to destroy brain major systems
 - [x] copy pegs => complement service test to check for the right peg associations
 - [ ] add link to public system for empty brain major systems index
+- [ ] pegs should be editable
 
 Next up:
 
