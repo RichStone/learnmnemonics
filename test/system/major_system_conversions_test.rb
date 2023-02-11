@@ -3,7 +3,7 @@ require "application_system_test_case"
 class MajorSystemConversionsTest < ApplicationSystemTestCase
   def setup
     @rich_brain = brains(:rich)
-    @public_system = major_systems(:buzan_en)
+    @public_system = major_systems(:wikipedia_en_original)
   end
 
   test "conversion redirects to sign in for anonymous brains" do
@@ -22,7 +22,8 @@ class MajorSystemConversionsTest < ApplicationSystemTestCase
       click_link "Check it out 👀"
     end
 
-    assert_selector "h1", text: "Major System from #{@public_system.origin}"
+    assert_selector("h1", text: "Major System from #{@public_system.origin}")
+    assert_selector(:xpath, "//div[starts-with(@id, 'peg_')]", count: 2)
 
     find("a", text: "Memorize 🧠").click
 
@@ -30,14 +31,7 @@ class MajorSystemConversionsTest < ApplicationSystemTestCase
     assert find("p", text: "Successfully shoved into brain")
     assert find("strong", text: "Origin:").sibling("a", text: @public_system.origin)
     assert find("span", text: "English")
-  end
-
-  test "brain sees all the copied pegs" do
-    login_as @rich_brain
-
-    visit public_major_system_url(@public_system)
-    find("a", text: "Memorize 🧠").click
-    assert find("div", class: "card")
+    assert_selector(:xpath, "//div[starts-with(@id, 'peg_')]", count: 2)
   end
 
   test "brain sees error when trying to convert a system if limit reached" do
