@@ -1,0 +1,21 @@
+<%= link_to "Back", brain_major_system_path(@peg.major_system) %>
+
+<%= form_with model: @peg, scope: :peg, url: brain_peg_path do |form| %>
+  <div class="mb-3">
+    <%= form.label :number, "Number" %>
+    <%= form.text_field :number, class: "form-control" %>
+  </div>
+
+  <% if @peg.image.attached? %>
+    <div class="mb-3">
+      <%= image_tag(@peg.image.variant(resize_to_limit: [200, 200]), class: "peg-image") %>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :phrase, "Phrase" %>
+    <%= form.text_field :phrase, class: "form-control" %>
+  </div>
+
+  <%= form.submit class: "btn btn-primary" %>
+<% end %>

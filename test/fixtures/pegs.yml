@@ -7,3 +7,9 @@ two:
   number: 2
   phrase: hen
   major_system: wikipedia_en_original
+
+# It's Rich's because `richs_wikipedia_en` system belongs_to him.
+richs_wikipedia_en_one:
+  number: 1
+  phrase: hat
+  major_system: richs_wikipedia_en

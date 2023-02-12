@@ -17,6 +17,14 @@ class BrainMajorSystemTest < ApplicationSystemTestCase
     assert_selector "h1", text: @rich_system.origin
   end
 
+  test "brains can go editing their system's pegs" do
+    visit brain_major_system_url(@rich_system)
+
+    click_on "Edit", match: :first
+
+    assert_text /Edit your .+ peg/
+  end
+
   test "brain can delete a major system" do
     visit brain_major_system_url(@rich_system)
     accept_confirm do

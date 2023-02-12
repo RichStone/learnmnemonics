@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   devise_for :brains
   namespace :brain do
     resources :major_systems, only: [:index, :show, :destroy]
+    resources :pegs, only: [:edit, :update]
     resources :conversions, only: [:new, :create]
   end
 

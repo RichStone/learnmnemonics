@@ -43,8 +43,17 @@ Conversion:
 - [x] add conversion limit
 - [x] allow to destroy brain major systems
 - [x] copy pegs => complement service test to check for the right peg associations
-- [ ] add link to public system for empty brain major systems index
 - [ ] pegs should be editable
+  - [x] create show page and allow edit (implement brain_pegs_url and show page, see tests)
+  - [ ] make image editable
+  - [ ] finish brain_pegs_test.rb
+  - [ ] test unprocessable entity path in [brain_pegs_test.rb](test%2Fsystem%2Fbrain_pegs_test.rb)
+- [ ] add link to public system for empty brain major systems index
+- [ ] fix sorting in brain show major system (last memorize started with 13, smaller ones came later)
+
+Discussed refactorings:
+
+- [ ] error handling in conversions controller
 
 Next up:
 

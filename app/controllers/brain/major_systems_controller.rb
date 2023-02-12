@@ -9,6 +9,10 @@ class Brain::MajorSystemsController < ApplicationController
     @major_system = current_brain.major_systems.find(major_system_params)
   end
 
+  def update
+    @major_system = current_brain.major_systems.find(major_system_params)
+  end
+
   def destroy
     @major_system = current_brain.major_systems.find(major_system_params)
 
