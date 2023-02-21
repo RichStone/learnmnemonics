@@ -1,21 +1,33 @@
 <%= link_to "Back", brain_major_system_path(@peg.major_system) %>
 
 <%= form_with model: @peg, scope: :peg, url: brain_peg_path do |form| %>
-  <div class="mb-3">
-    <%= form.label :number, "Number" %>
-    <%= form.text_field :number, class: "form-control" %>
+  <div class="row g-3 align-items-center m-3">
+    <div class="col-auto">
+      <%= form.label :number, "Number", class: "col-form-label" %>
+    </div>
+    <div class="col-auto">
+      <%= form.text_field :number, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row g-3 align-items-center m-3">
+    <div class="col-auto">
+      <%= form.label :phrase, "Phrase", class: "col-form-label" %>
+    </div>
+    <div class="col-auto">
+      <%= form.text_field :phrase, class: "form-control" %>
+    </div>
   </div>
 
   <% if @peg.image.attached? %>
     <div class="mb-3">
       <%= image_tag(@peg.image.variant(resize_to_limit: [200, 200]), class: "peg-image") %>
     </div>
+    <div class="input-group m-3">
+      <%= form.label :image, "Image", class: "input-group-text" %>
+      <%= form.file_field :image, class: "form-control" %>
+    </div>
   <% end %>
-
-  <div class="mb-3">
-    <%= form.label :phrase, "Phrase" %>
-    <%= form.text_field :phrase, class: "form-control" %>
-  </div>
 
   <%= form.submit class: "btn btn-primary" %>
 <% end %>

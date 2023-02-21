@@ -22,7 +22,7 @@ class BrainMajorSystemTest < ApplicationSystemTestCase
 
     click_on "Edit", match: :first
 
-    assert_text /Edit your .+ peg/
+    assert find("input[value=\"Update Peg\"]")
   end
 
   test "brain can delete a major system" do

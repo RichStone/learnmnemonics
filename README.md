@@ -45,17 +45,18 @@ Conversion:
 - [x] copy pegs => complement service test to check for the right peg associations
 - [ ] pegs should be editable
   - [x] create show page and allow edit (implement brain_pegs_url and show page, see tests)
-  - [ ] make image editable
-  - [ ] finish brain_pegs_test.rb
+  - [x] make image editable
+  - [ ] finish brain_pegs_test.rb with eiditing image
   - [ ] test unprocessable entity path in [brain_pegs_test.rb](test%2Fsystem%2Fbrain_pegs_test.rb)
+  - [ ] test edit image: wrong/too big file
 - [ ] add link to public system for empty brain major systems index
-- [ ] fix sorting in brain show major system (last memorize started with 13, smaller ones came later)
+- [ ] fix sorting in brain show major system after memorizing (last memorize started with 13, smaller ones came later)
 
 Discussed refactorings:
 
 - [ ] error handling in conversions controller
 
-Next up:
+Post-MVP:
 
 - [ ] add spaced repetition gem
 - [ ] add footer
