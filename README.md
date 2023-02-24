@@ -51,6 +51,8 @@ Conversion:
   - [ ] test edit image: wrong/too big file
 - [ ] add link to public system for empty brain major systems index
 - [ ] fix sorting in brain show major system after memorizing (last memorize started with 13, smaller ones came later)
+- [ ] seed all the images
+- [ ] handle s3 cleanups (e.g. when major system is removed make sure all's cleaned up)
 
 Discussed refactorings:
 
