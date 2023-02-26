@@ -32,9 +32,6 @@ You might want to empty and clean up the AWS bucket at some point.
 - [x] make quick links and metadata nice in Brain show page
 - [x] use cards for Brain#show pegs
 - [x] make similar in public
-
-Conversion:
-
 - [x] ~add `resource_id` to Conversion ActiveModel and params~
 - [x] continue with: Controller test => 
 - [x] => continue with TODO system test 
@@ -46,13 +43,16 @@ Conversion:
 - [ ] pegs should be editable
   - [x] create show page and allow edit (implement brain_pegs_url and show page, see tests)
   - [x] make image editable
-  - [ ] finish brain_pegs_test.rb with eiditing image
+  - [ ] finish brain_pegs_test.rb with editing image
   - [ ] test unprocessable entity path in [brain_pegs_test.rb](test%2Fsystem%2Fbrain_pegs_test.rb)
   - [ ] test edit image: wrong/too big file
 - [ ] add link to public system for empty brain major systems index
-- [ ] fix sorting in brain show major system after memorizing (last memorize started with 13, smaller ones came later)
+- [x] fix sorting in brain show major system after memorizing (last memorize started with 13, smaller ones came later)
+- [x] remove under construction note
+- [ ] get memorize button up on non-mobile
 - [ ] seed all the images
 - [ ] handle s3 cleanups (e.g. when major system is removed make sure all's cleaned up)
+- [ ] add landing page
 
 Discussed refactorings:
 

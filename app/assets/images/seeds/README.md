@@ -4,6 +4,6 @@ Image names must be stored in this way:
 
 - lower case
 - concatenated by dashes
-- ending with `.png`
+- ending with `.PNG`
 
 So that it gets picked up by the algorithm in `seeds.rb`.
