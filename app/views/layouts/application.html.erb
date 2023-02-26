@@ -31,4 +31,15 @@
       </div>
     </main>
   </body>
+
+  <footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <%= link_to "About ℹ️", public_homepage_path, class: "nav-link px-2 text-muted" %>
+      <%= link_to "Major Systems 🔮", public_major_systems_path, class: "nav-link px-2 text-muted" %>
+      <%= link_to "Connect 🧠🔌", brain_session_path, class: "nav-link px-2 text-muted" unless brain_signed_in? %>
+    </ul>
+    <p class="text-center text-muted">
+      Made with 🧠 by <%= link_to "RichStoneIO", "https://richstone.io/train-your-developer-memory/", target: "_blank" %>
+      © <%= Time.current.year %></p>
+  </footer>
 </html>
