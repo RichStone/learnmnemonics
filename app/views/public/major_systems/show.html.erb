@@ -28,7 +28,7 @@
       <div class="card my-5 text-center mx-auto" style="width: 18rem;">
         <h4 class="card-text p-1"><%= peg.number %></h4>
         <% if peg.image.attached? %>
-          <%= image_tag(peg.image.variant(resize_to_limit: [200, 200]), class: "card-img-top") %>
+          <%= image_tag(peg.image.variant(resize_to_limit: [400, 400]), class: "card-img-top") %>
         <% end %>
         <h5 class="card-title p-2"><%= peg.phrase %></h5>
       </div>
