@@ -43,7 +43,7 @@ de_stenger_system = MajorSystem.create(
 de_stenger_pegs =
   %w[
     Sau Tee Noah Mai Reh Lee Schuh Kuh Fee Po
-    Tasse Tüte Tonne Team Teer Tal Tasche Theke Taufe Taube
+    Tasse Tüte Tanne Team Teer Tal Tasche Theke Taufe Taube
     Nase Note Nonne Nemo Narr Nil Nische Nike Neffe Neubau
     Moos Matte Mann Mama Meer Mehl Masche Mac Mafia Mappe
     Rose Ratte Ruine Rum Rohr Rolle Rauch Rock Reif Raupe
