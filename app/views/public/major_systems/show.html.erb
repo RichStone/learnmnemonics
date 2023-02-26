@@ -23,7 +23,7 @@
 </div>
 
 <div id="pegs" class="mt-5">
-  <% @major_system.pegs.each do |peg| %>
+  <% @major_system.pegs.ordered.each do |peg| %>
     <div id="<%= dom_id peg %>">
       <div class="card my-5 text-center mx-auto" style="width: 18rem;">
         <h4 class="card-text p-1"><%= peg.number %></h4>

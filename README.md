@@ -16,8 +16,8 @@ To populate the DB with default images and major systems:
 $ br db:seed
 $ br db:seed:replant
 # heroku
-$ heroku run rake db:seed
-$ heroku run rake db:seed:replant
+$ heroku run rake db:seed DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+$ heroku run rake db:seed:replant DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 ```
 
 `seeds.rb` contains more rules and instructions.
