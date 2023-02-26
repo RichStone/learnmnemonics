@@ -4,8 +4,41 @@
       <p class="alert alert-primary" role="alert"><%= notice %></p>
     <% end %>
 
-    <div>
-      Welcome to the homepage!
+    <div class="text-center">
+      <h1 class="mb-5">Memory Training</h1>
+    </div>
+
+    <div class="m-auto" style="text-align: justify; max-width: 500px; font-family: helvetica, verdana, arial, sans-serif">
+      <p class="mb-2">
+        Given 20 random words and 1 minute, you will be able to keep about
+        7 (plus-minus 2) of the words in your short-term memory. Try it out!
+      </p>
+      <p class="my-3">
+        Using a memory technique, you will memorize all of them with no effort.
+      </p>
+      <p class="my-3">
+        One of the most popular memory techniques is known as the Mnemonic Major
+        System. You first anchor an ordered list of 100 images into your long-term
+        memory. Then, whenever you need to memorize a new item, you will create
+        a visual scene combining the new and anchored images. Depending
+        on your experience, this can take a fraction of a second.
+      </p>
+      <p class="my-3">
+        There are a lot of useful or fun day-to-day applications for this memory
+        technique. Memorize a to-do list, ingrain a speech you give a lot,
+        or show off an impossible body of knowledge.
+      </p>
+      <p class="my-3">
+        Here on <strong>memocortex</strong>, you can learn and keep track of your major
+        systems in your preferred language and adjust them to your needs.
+      </p>
+      <p class="my-3">
+        <strong>Enjoy:</strong> <%= link_to "memocortex", public_major_systems_path %>
+      </p>
+    </div>
+
+    <div class="text-center">
+      <%= image_tag "memory.png", class: "img-fluid" %>
     </div>
   </div>
 </div>

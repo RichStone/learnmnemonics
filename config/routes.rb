@@ -14,5 +14,5 @@ Rails.application.routes.draw do
     resources :conversions, only: [:new, :create]
   end
 
-  root "public/major_systems#index"
+  root "public/homepages#show"
 end
