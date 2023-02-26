@@ -35,7 +35,7 @@ en_wiki_pegs =
 
 # German "Warum fällt das Schaf vom Baum" Major System.
 de_stenger_system = MajorSystem.create(
-  origin: "Warum Fällt Das Schaf vom Baum - Christian Stenger",
+  origin: "Warum Fällt Das Schaf vom Baum - Christiane Stenger",
   origin_url: "https://www.amazon.de/-/en/Christiane-Stenger/dp/3453685113",
   language_iso: "de",
   brain: nil # An original system.
