@@ -12,8 +12,9 @@ class Admin::PegsController < ApplicationController
     # TODO: The sorting will break with 0-prepended pegs like "00", "01", etc.
     if !filter_params[:set_id]
       # FIXME: Only showing German ones as default, while other admins work on it.
+      # 43 seems like magic 42 but actually stands for Stenger's peg set.
       # @pegs = Peg.all.ordered
-      @pegs = Peg.where(mnemonic_system_id: 49).ordered
+      @pegs = Peg.where(mnemonic_system_id: 43).ordered
     else
       @pegs = Peg.where(mnemonic_system_id: filter_params[:set_id]).ordered
     end
