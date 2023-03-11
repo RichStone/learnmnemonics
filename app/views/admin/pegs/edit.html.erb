@@ -1,8 +1,7 @@
 <div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing peg</h1>
+  <h1 class="font-bold text-4xl">Edit ✏️</h1>
+
+  <%= link_to "🔙 List", admin_pegs_path, class: "btn btn-outline-primary" %>
 
   <%= render "form", peg: @peg %>
-
-  <%= link_to "Show this peg", admin_peg_path(@peg), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to pegs", admin_pegs_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>

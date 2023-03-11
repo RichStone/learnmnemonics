@@ -4,12 +4,12 @@
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
+    <%= link_to "🔙 List", admin_pegs_path, class: "btn btn-outline-primary" %>
+
     <%= render @peg %>
 
-    <%= link_to 'Edit this peg', edit_admin_peg_path(@peg), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this peg', admin_peg_path(@peg), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
-    <%= link_to 'Back to pegs', admin_pegs_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit ✏️", edit_admin_peg_path(@peg), class: "btn btn-primary btn-lg" %>
+
+    <%= button_to "Destroy 🚮", admin_peg_path(@peg), method: :delete, class: "btn btn-danger btn-sm float-end" %>
   </div>
 </div>

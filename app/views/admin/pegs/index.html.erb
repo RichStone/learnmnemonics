@@ -7,9 +7,15 @@
     <h1 class="font-bold text-4xl">Mnemonic Pegs</h1>
   </div>
 
-  <div id="quick-links" class="grid grid-cols-10 gap-1 text-center mt-28">
-    <% @pegs.each do |peg| %>
-      <%= link_to peg.number, admin_peg_path(peg), class: "text-blue-600 underline" %>
+  <div id="quick-links" class="my-5">
+    <% @pegs.in_batches(of: 10) do |peg_batch| %>
+      <div class="btn-toolbar my-2" style="justify-content: center;" role="toolbar" aria-label="Quick links button groups">
+        <div class="btn-group me-2" role="group" aria-label="Group">
+          <% peg_batch.each do |peg| %>
+            <%= link_to peg.number, "##{dom_id(peg)}", class: "btn btn-outline-secondary", style: "width: 38px;" %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
   </div>
 

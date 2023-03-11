@@ -10,7 +10,13 @@ class Admin::PegsController < ApplicationController
   # GET /pegs
   def index
     # TODO: The sorting will break with 0-prepended pegs like "00", "01", etc.
-    @pegs = Peg.all.sort_by {|peg| peg.number.to_i}
+    if !filter_params[:set_id]
+      # FIXME: Only showing German ones as default, while other admins work on it.
+      # @pegs = Peg.all.ordered
+      @pegs = Peg.where(mnemonic_system_id: 49).ordered
+    else
+      @pegs = Peg.where(mnemonic_system_id: filter_params[:set_id]).ordered
+    end
   end
 
   # GET /pegs/1
@@ -62,5 +68,9 @@ class Admin::PegsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def peg_params
       params.require(:peg).permit(:image, :number, :phrase, :mnemonic_system_id)
+    end
+
+    def filter_params
+      params.permit(:set_id)
     end
 end
