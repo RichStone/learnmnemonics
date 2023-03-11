@@ -22,7 +22,14 @@ $ heroku run rake db:seed:replant DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 
 `seeds.rb` contains more rules and instructions.
 
-You might want to empty and clean up the AWS bucket at some point.
+You might want to empty and clean up the AWS bucket at some point.[README.md](README.md)
+
+## Setting super admin creds
+
+```shell
+$ EDITOR="code --wait" rails credentials:edit
+$ # push to repos.
+```
 
 ## TODOs
 
