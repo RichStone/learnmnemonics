@@ -18,4 +18,20 @@ module ApplicationHelper
       [::ISO_639.find(iso).english_name, iso]
     end
   end
+
+  def admin_major_system_form_path
+    if action_name == "edit"
+      admin_major_system_path
+    elsif action_name == "new"
+      admin_major_systems_path
+    end
+  end
+
+  def admin_peg_form_path
+    if action_name == "edit"
+      admin_peg_path
+    elsif action_name == "new"
+      admin_pegs_path
+    end
+  end
 end

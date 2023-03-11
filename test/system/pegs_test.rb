@@ -6,19 +6,19 @@ class PegsTest < ApplicationSystemTestCase
   end
 
   test "visiting the index" do
-    visit_basic_auth pegs_url
+    visit_basic_auth admin_pegs_url
     assert_selector "h1"
     assert_selector(:xpath, "//div[@id='quick-links']/a", count: Peg.count)
   end
 
   test "#index has a peg image with a valid link" do
-    visit_basic_auth pegs_url
+    visit_basic_auth admin_pegs_url
     image = page.first(:css, ".peg-image")
     assert_not_empty image[:src]
   end
 
   test "should create peg" do
-    visit_basic_auth pegs_url
+    visit_basic_auth admin_pegs_url
     click_on "New Peg"
 
     fill_in "Number", with: @peg.number
@@ -31,7 +31,7 @@ class PegsTest < ApplicationSystemTestCase
   end
 
   test "should update peg" do
-    visit_basic_auth peg_url(@peg)
+    visit_basic_auth admin_peg_url(@peg)
     click_on "Edit this peg", match: :first
 
     fill_in "Number", with: @peg.number
@@ -43,7 +43,7 @@ class PegsTest < ApplicationSystemTestCase
   end
 
   test "should destroy peg" do
-    visit_basic_auth peg_url(@peg)
+    visit_basic_auth admin_peg_url(@peg)
     click_on "Destroy this peg", match: :first
 
     assert_text "Peg was successfully destroyed"

@@ -1,6 +1,5 @@
 # The super admin part of the application.
-# TODO: Move to Admin:: namespace.
-class PegsController < ApplicationController
+class Admin::PegsController < ApplicationController
   http_basic_authenticate_with(
     name: Rails.application.credentials.dig(:basic_auth_username),
     password: Rails.application.credentials.dig(:basic_auth_password)
@@ -32,7 +31,7 @@ class PegsController < ApplicationController
     @peg = Peg.new(peg_params)
 
     if @peg.save
-      redirect_to peg_url(@peg), notice: "Peg was successfully created."
+      redirect_to admin_peg_url(@peg), notice: "Peg was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -41,7 +40,7 @@ class PegsController < ApplicationController
   # PATCH/PUT /pegs/1
   def update
     if @peg.update(peg_params)
-      redirect_to peg_url(@peg), notice: "Peg was successfully updated."
+      redirect_to admin_peg_url(@peg), notice: "Peg was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -51,7 +50,7 @@ class PegsController < ApplicationController
   def destroy
     @peg.destroy
 
-    redirect_to pegs_url, notice: "Peg was successfully destroyed."
+    redirect_to admin_pegs_url, notice: "Peg was successfully destroyed."
   end
 
   private

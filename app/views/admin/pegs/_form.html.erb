@@ -1,4 +1,4 @@
-<%= form_with(model: peg, class: "contents") do |form| %>
+<%= form_with(model: peg, url: admin_peg_form_path, class: "contents") do |form| %>
   <% if peg.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(peg.errors.count, "error") %> prohibited this peg from being saved:</h2>

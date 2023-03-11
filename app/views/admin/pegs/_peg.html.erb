@@ -10,14 +10,14 @@
 
   <p class="hero container max-w-screen-lg mx-auto pb-10 flex justify-center">
     <% if peg.image.attached? %>
-      <%= link_to image_tag(peg.image.variant(resize_to_limit: [200, 200]), class: "peg-image"), peg_path(peg) %>
+      <%= link_to image_tag(peg.image.variant(resize_to_limit: [200, 200]), class: "peg-image"), admin_peg_path(peg) %>
     <% end %>
   </p>
 
   <% if action_name != "show" %>
     <div class="text-center">
-      <%= link_to "Show this peg", peg, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      <%= link_to 'Edit this peg', edit_peg_path(peg), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100
+      <%= link_to "Show this peg", admin_peg_path(peg), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to 'Edit this peg', edit_admin_peg_path(peg), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100
            inline-block font-medium" %>
       <hr class="mt-6">
     </div>

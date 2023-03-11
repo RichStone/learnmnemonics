@@ -1,4 +1,4 @@
-<%= form_with(model: major_system, class: "contents") do |form| %>
+<%= form_with(model: major_system, url: admin_major_system_form_path, class: "contents") do |form| %>
   <% if major_system.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(major_system.errors.count, "error") %> prohibited this major_system from being saved:</h2>

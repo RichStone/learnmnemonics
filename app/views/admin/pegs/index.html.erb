@@ -9,7 +9,7 @@
 
   <div id="quick-links" class="grid grid-cols-10 gap-1 text-center mt-28">
     <% @pegs.each do |peg| %>
-      <%= link_to peg.number, peg_path(peg), class: "text-blue-600 underline" %>
+      <%= link_to peg.number, admin_peg_path(peg), class: "text-blue-600 underline" %>
     <% end %>
   </div>
 
@@ -17,5 +17,5 @@
     <%= render @pegs %>
   </div>
 
-  <%= link_to 'New Peg', new_peg_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium fixed bottom-14 right-14" %>
+  <%= link_to 'New Peg', new_admin_peg_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium fixed bottom-14 right-14" %>
 </div>

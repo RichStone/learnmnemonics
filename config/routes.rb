@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :major_systems
-  resources :pegs
+  namespace :admin do
+    resources :major_systems
+    resources :pegs
+  end
 
   namespace :public do
     resources :major_systems, only: [:index, :show]

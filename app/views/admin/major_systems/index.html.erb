@@ -5,10 +5,10 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Major systems</h1>
-    <%= link_to 'New major system', new_major_system_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <%= link_to 'New major system', new_admin_major_system_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
   <div id="major_systems" class="min-w-full">
-    <%= render @major_systems %>
+    <%= render partial: "admin/major_systems/major_system", collection: @major_systems %>
   </div>
 </div>
