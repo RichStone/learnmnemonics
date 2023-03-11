@@ -12,7 +12,7 @@
       <div class="btn-toolbar my-2" style="justify-content: center;" role="toolbar" aria-label="Quick links button groups">
         <div class="btn-group me-2" role="group" aria-label="Group">
           <% peg_batch.each do |peg| %>
-            <%= link_to peg.number, "##{dom_id(peg)}", class: "btn btn-outline-secondary", style: "width: 38px;" %>
+            <%= link_to peg.number, "##{dom_id(peg)}", class: "peg-image btn btn-outline-secondary", style: "width: 38px;" %>
           <% end %>
         </div>
       </div>
